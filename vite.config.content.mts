@@ -25,11 +25,11 @@ export default defineConfig({
       entry: r('src/contentScripts/index.ts'),
       name: packageJson.name,
       formats: ['iife'],
+      cssFileName: 'index',
     },
     rollupOptions: {
       output: {
         entryFileNames: 'index.global.js',
-        assetFileNames: 'index.[ext]',
         extend: true,
       },
     },
