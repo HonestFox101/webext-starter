@@ -29,6 +29,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         entryFileNames: 'index.global.js',
+        assetFileNames: 'index.[ext]',
         extend: true,
       },
     },

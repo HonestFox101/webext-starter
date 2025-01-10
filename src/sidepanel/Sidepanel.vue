@@ -1,22 +1,49 @@
 <script setup lang="ts">
-import { storageDemo } from '~/logic/storage'
+import { storageDemo } from "~/logic/storage";
 
 function openOptionsPage() {
-  browser.runtime.openOptionsPage()
+  browser.runtime.openOptionsPage();
 }
 </script>
 
 <template>
-  <main class="w-full px-4 py-5 text-center text-gray-700">
+  <main class="side-panel">
     <Logo />
-    <div>Sidepanel</div>
+    <div class="title">Sidepanel</div>
     <SharedSubtitle />
 
-    <button class="btn mt-2" @click="openOptionsPage">
-      Open Options
-    </button>
-    <div class="mt-2">
+    <button @click="openOptionsPage">Open Options</button>
+    <div class="footer">
       <span class="opacity-50">Storage:</span> {{ storageDemo }}
     </div>
   </main>
 </template>
+
+<style lang="scss" scoped>
+.side-panel {
+  padding: 1rem;
+  background-color: #b4effe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border: 1px solid #333;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .footer {
+    margin-top: 1rem;
+  }
+}
+</style>

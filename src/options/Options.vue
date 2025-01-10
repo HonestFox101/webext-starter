@@ -1,18 +1,41 @@
 <script setup lang="ts">
-import logo from '~/assets/logo.svg'
-import { storageDemo } from '~/logic/storage'
+import logo from "~/assets/logo.svg";
+import { storageDemo } from "~/logic/storage";
 </script>
 
 <template>
-  <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
-    <img :src="logo" class="icon-btn mx-2 text-2xl" alt="extension icon">
-    <div>Options</div>
+  <main class="option-page">
+    <img :src="logo" class="" alt="extension icon" />
+    <div class="title">Options Page</div>
     <SharedSubtitle />
-
-    <input v-model="storageDemo" class="border border-gray-400 rounded px-2 py-1 mt-2">
-
-    <div class="mt-4">
+    <input v-model="storageDemo" class="input-field" />
+    <div class="footer">
       Powered by Vite <pixelarticons-zap class="align-middle inline-block" />
     </div>
   </main>
 </template>
+
+<style lang="scss" scoped>
+.option-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #a3a8d4;
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .input-field {
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 0.25rem;
+  }
+
+  .footer {
+    margin-top: 1rem;
+  }
+}
+</style>
