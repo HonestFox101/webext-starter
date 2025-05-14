@@ -1,5 +1,5 @@
 import { StorageSerializers } from '@vueuse/core'
-import { pausableWatch, toValue, tryOnScopeDispose } from '@vueuse/shared'
+import { pausableWatch, toValue, tryOnScopeDispose, debounceFilter } from '@vueuse/shared'
 import { ref, shallowRef } from 'vue-demi'
 import { storage } from 'webextension-polyfill'
 
@@ -69,7 +69,7 @@ export function useWebExtensionStorage<T>(
     writeDefaults = true,
     mergeDefaults = false,
     shallow,
-    eventFilter,
+    eventFilter = debounceFilter(1000),
     onError = (e) => {
       console.error(e)
     },
